@@ -1,0 +1,161 @@
+.habit-card {
+  position: relative;
+  padding: 1.25rem;
+  background: var(--category-color);
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.habit-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Completed state - dimmed */
+.habit-card--completed {
+  opacity: 0.7;
+}
+
+.habit-card--completed:hover {
+  opacity: 0.85;
+}
+
+.habit-card-checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.habit-card--editing {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  opacity: 1;
+}
+
+.habit-card--editing:hover {
+  transform: none;
+}
+
+.habit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.habit-category-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.habit-card-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.habit-card--editing .icon-btn {
+  background: var(--bg-tertiary);
+}
+
+.habit-card--editing .icon-btn:hover {
+  background: var(--bg-hover);
+}
+
+.habit-name {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.habit-card--editing .habit-name {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.habit-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.habit-card--editing .habit-stats {
+  color: var(--text-secondary);
+}
+
+.habit-progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.habit-card--editing .habit-progress-bar {
+  background: var(--bg-tertiary);
+}
+
+.habit-progress-fill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.habit-card--editing .habit-progress-fill {
+  background: var(--accent);
+}
+
+.habit-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.habit-card--editing .habit-checkbox {
+  color: var(--text-primary);
+}
+
+.habit-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: white;
+  cursor: pointer;
+}
+
+.habit-card--editing .habit-checkbox input {
+  accent-color: var(--accent);
+}

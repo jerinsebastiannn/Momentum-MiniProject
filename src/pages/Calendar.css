@@ -1,0 +1,257 @@
+.calendar-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.nav-btn:hover {
+  background: var(--bg-hover);
+  transform: scale(1.02);
+}
+
+/* GitHub-style heatmap */
+.calendar-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.heatmap-weekday {
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.05);
+}
+
+/* Heatmap intensity levels - green gradient like GitHub */
+.heatmap-cell--level-0 {
+  background: var(--bg-tertiary);
+}
+
+.heatmap-cell--level-1 {
+  background: #9be9a8;
+}
+
+.heatmap-cell--level-2 {
+  background: #40c463;
+}
+
+.heatmap-cell--level-3 {
+  background: #30a14e;
+}
+
+.heatmap-cell--level-4 {
+  background: #216e39;
+  color: white;
+}
+
+[data-theme="dark"] .heatmap-cell--level-0 {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .heatmap-cell--level-1 {
+  background: #0e4429;
+}
+
+[data-theme="dark"] .heatmap-cell--level-2 {
+  background: #006d32;
+}
+
+[data-theme="dark"] .heatmap-cell--level-3 {
+  background: #26a641;
+}
+
+[data-theme="dark"] .heatmap-cell--level-4 {
+  background: #39d353;
+  color: var(--text-primary);
+}
+
+.heatmap-cell--empty {
+  background: var(--bg-tertiary);
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.heatmap-cell--empty .heatmap-cell-num {
+  display: none;
+}
+
+.heatmap-cell--selected {
+  border: 2px solid var(--accent);
+  outline: none;
+}
+
+.heatmap-cell--today {
+  border: 2px solid var(--accent);
+}
+
+.heatmap-cell-num {
+  font-size: 0.75rem;
+}
+
+.heatmap-cell--level-4 .heatmap-cell-num {
+  color: white;
+}
+
+[data-theme="dark"] .heatmap-cell--level-4 .heatmap-cell-num {
+  color: var(--text-primary);
+}
+
+/* Legend */
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.legend-cell {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Detail panel */
+.calendar-detail {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.calendar-detail h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calendar-view-only {
+  margin: 0 0 1rem 0;
+  padding: 0.6rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.calendar-habits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calendar-habit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-habit-item:hover {
+  background: var(--bg-hover);
+}
+
+.calendar-habit-item.completed {
+  opacity: 0.85;
+}
+
+.calendar-habit-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.calendar-habit-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.calendar-habit-name {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.calendar-habit-item--disabled {
+  opacity: 0.8;
+}
+
+.calendar-habit-item--disabled input:disabled {
+  cursor: not-allowed;
+}
+
+.no-habits {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .heatmap-cell {
+    min-height: 28px;
+    font-size: 0.7rem;
+  }
+
+  .heatmap-weekday {
+    font-size: 0.6rem;
+  }
+}
